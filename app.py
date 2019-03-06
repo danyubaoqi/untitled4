@@ -15,5 +15,5 @@ def index():
 
 
 if __name__ == '__main__':
-    app.config.from_pyfile("config.cfg")
+    app.config.from_object("config.debug")
     app.run(port=5000)
