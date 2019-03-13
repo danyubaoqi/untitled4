@@ -1,2 +1,3 @@
 from alchemy import Example
-a=alchemy
+a=alchemy.query.all()
+print(a)
