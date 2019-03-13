@@ -2,4 +2,4 @@ Flask==1.0.2
 gunicorn==19.9.0
 Flask-login==0.4.1
 Flask-SQLAlchemy==2.3.2
-
+Flask-socketio==3.3.1

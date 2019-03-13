@@ -4,23 +4,25 @@ from flask import request, session, redirect
 app = Flask(__name__)
 app.secret_key = "super secret key"
 
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:root@/mydata'
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == "POST":
         user = request.form["user"]
         session["user"] = user
-        return render_template("room.html",user=user)
+        return render_template("room.html", user=user)
     else:
         if "user" in session:
-            return render_template("room.html", user=session["user"])
+            return redirect("/room")
         else:
             return render_template("login.html")
 
 
 @app.route('/room')
 def room():
-    return render_template("room.html")
+    return render_template("room.html", user=session["user"])
 
 
 @app.route('/')
